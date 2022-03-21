@@ -5,6 +5,8 @@ import java.util.StringTokenizer;
 
 import static java.lang.Math.sqrt;
 
+//저번주였나 했다가 재도전 현재 2022-03-17
+
 public class Pro4_1929 {
 
     public static void main(String[] args) throws IOException {
@@ -26,18 +28,24 @@ public class Pro4_1929 {
                 int count =0;
 
                 if(i==1){
-                    break;
+                  count=1;
                 }else if(i%2!=0){
-                    for (int j = 1; j <= sqrt(i); j++) {
+                    for (int j = 2; j <= sqrt(i); j++) {
                         if(i%j==0){
                             count++;
                         }
+                        if(count>0){
+                            break;
+                        }
                     }
                 }else if(i==2){
-                    count=1;
+
+                    count=0;
+                }else{
+                    count++;
                 }
 
-                if(count==1){
+                if(count==0){
                     stringBuilder.append(i).append("\n");
                 }
 
