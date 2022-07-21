@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
-public class Pro1_15649 {
+public class Pro2_15650 {
 
     static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -31,7 +31,7 @@ public class Pro1_15649 {
 
 
 
-    public Pro1_15649() throws IOException {
+    public Pro2_15650() throws IOException {
     }
 
     public static void main(String[] args) throws IOException {
@@ -49,6 +49,7 @@ public class Pro1_15649 {
 
     static void DFS(int count){
         if(count == M){
+
             for (int i = 0; i < vector.size(); i++) {
                 System.out.print(vector.get(i) + " ");
             }
@@ -57,9 +58,12 @@ public class Pro1_15649 {
         }
         for (int i = 0; i < N; i++) {
             if(visited[i]) {
+
                 continue;
             }else{
+
                 visited[i] = true;
+
                 vector.add(arr[i]);
                 DFS(count + 1);
                 vector.remove(vector.size()-1);
