@@ -1,4 +1,4 @@
-package main.java.algorithm.baekjun.stepByStep.step9;
+package main.java.algorithm.baekjun.stepByStep.step9_geometry;
 
 import java.io.*;
 
