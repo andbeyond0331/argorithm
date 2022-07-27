@@ -3,7 +3,7 @@ package main.java.algorithm.baekjun.stepByStep.step10;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-// TODO: 2022-07-25 실력 키워서 다시 오쟈
+// TO :DO: 2022-07-25 실력 키워서 다시 오쟈
 
 public class Pro4_2447_I_WILL_BE_BACK {
 
