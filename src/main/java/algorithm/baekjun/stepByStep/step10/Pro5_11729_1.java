@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.Stack;
 
-// 2022-07-27 재시도
+// 2022-07-27 재시도 - todo 다시 생각해보기 ㅠㅠ
 
 public class Pro5_11729_1 {
 
@@ -19,6 +19,8 @@ public class Pro5_11729_1 {
     public static int N;
 
     public static int plate;
+
+    public static boolean flag;
 
     public static void main(String[] args) throws IOException{
 
@@ -35,54 +37,56 @@ public class Pro5_11729_1 {
         plate = 1;
         next(0);
 
-        moves = countMove[N];
+        flag = false;
 
-        System.out.println(countMove[N].length());
+        moves = countMove[N-1];
+
+        System.out.println(countMove[N-1].length());
 
         for (int i = N; i > 0; i--) {
             first.push(i);
         }
 
-        Main(0, 1, 3);
+        Main(N, 1, 3);
+
+        bufferedWriter.write(String.valueOf(stringBuilder));
+        bufferedWriter.flush();
+        bufferedWriter.close();
+
+        bufferedReader.close();
 
     }
 
     public static void Main(int n, int start, int end){
 
-        if(n==N){
-            stringBuilder.append(start +" "+ end).append("\n");
+        if(n==0){
+            if(flag==false){
+                Main(N-1, 2,3);
+                System.out.println("......");
+                flag = !flag;
+            }
             return;
         }
-//        else if(n==N){
-//            if(N%2==0){
-//                stringBuilder.append("1 2").append("\n");
-//                second.push(first.pop());
-//            }else{
-//                stringBuilder.append("1 3").append("\n");
-//                third.push(first.pop());
-//            }
-//        }
-        if(N%2==0 && n==0){
-            stringBuilder.append("1 2").append("\n");
-            second.push(first.pop());
-            plate++;
-            Main(n+1, 1, 3);
-        }else if(N%2!=0 && n==0){
-            stringBuilder.append("1 3").append("\n");
-            third.push(first.pop());
-            plate++;
-            Main(n+1, 1, 2);
+        if(n-1>0){
+            if(first.contains(n-1)){
+//                if((6-start-end)==2){
+//                    second.push(first.pop());
+//                }else if((6-start-end)==3){
+//                    third.push(first.pop());
+//                }
+
+                Main(n-1, 1, 6-start-end);
+            }else if(second.contains(n-1)){
+                Main(n-1, 2, 6-start-end);
+            }else if(third.contains(n-1)){
+                Main(n-1, 3, 6-start-end);
+            }
         }
+//
+//        if(start)
+        stringBuilder.append(start+" "+end).append("\n");
 
 
-
-
-
-        Main(n+1, start, 6-start-end);
-        Main(n+2, end, 6-start-end);
-        if(moves.substring(n,n+1)==""){
-
-        }
 
     }
 
