@@ -2,7 +2,7 @@
 package main.java.algorithm.baekjun.stepByStep.step12;
 
 // 2022-07-26 시도 - 시간초과 해결 ver - 실패
-// TODO: 2022-07-26 머리 맑을 때 다시!
+// TO:DO: 2022-07-26 머리 맑을 때 다시!
 
 import java.io.*;
 import java.util.*;

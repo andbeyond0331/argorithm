@@ -2,7 +2,7 @@
 package main.java.algorithm.baekjun.stepByStep.step12;
 
 // 2022-07-26 시도 - 시간초과 해결 ver - 실패
-//  2022-07-27 재시도 - 병합 정렬도 실패라니... todo 다시 시도하기
+//  2022-07-27 재시도 - 병합 정렬도 실패라니... to:do 다시 시도하기
 
 import java.io.*;
 import java.util.*;

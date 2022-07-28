@@ -3,7 +3,7 @@ package main.java.algorithm.baekjun.stepByStep.step10;
 import java.io.*;
 import java.util.Stack;
 
-// TODO: 2022-07-25 이거도 다시 오기 
+// TO : DO: 2022-07-25 이거도 다시 오기
 
 public class Pro5_11729_I_WILL_BE_BACK {
 

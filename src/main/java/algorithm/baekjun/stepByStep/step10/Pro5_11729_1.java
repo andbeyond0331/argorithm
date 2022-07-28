@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.Stack;
 
-// 2022-07-27 재시도 - todo 다시 생각해보기 ㅠㅠ
+// 2022-07-27 재시도 - to : do 다시 생각해보기 ㅠㅠ
 
 public class Pro5_11729_1 {
 

@@ -1,14 +1,12 @@
 package main.java.algorithm.baekjun.stepByStep.step14;
 
 // 시작 전
+// 2022-07-28 첫 시도 -  유클리드 호제법 이용 - 성공!
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
 import java.util.StringTokenizer;
 
-public class Pro3_2609 {
+public class Pro3_2609_solved {
 
 
     public static void main(String args[] ) throws IOException {
@@ -18,21 +16,33 @@ public class Pro3_2609 {
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        int amount = Integer.parseInt(bufferedReader.readLine());
         StringTokenizer stringTokenizer = new StringTokenizer(bufferedReader.readLine(), " ");
 
-        List<Integer> list = new ArrayList<>();
+        int a = Integer.parseInt(stringTokenizer.nextToken());
+        int b = Integer.parseInt(stringTokenizer.nextToken());
 
-        for (int i = 0; i < amount; i++) {
-            int temp = Integer.parseInt(stringTokenizer.nextToken());
-            list.add(temp);
-        }
-        list.sort(Comparator.naturalOrder());
+        int gcd= GCD(a,b);
 
-        bufferedWriter.write(String.valueOf(list.get(0)*list.get(list.size()-1)));
+        stringBuilder.append(gcd).append("\n");
+
+        int lcm = a*b/gcd;
+
+        stringBuilder.append(lcm).append("\n");
+
+        
+
+
+        bufferedWriter.write(String.valueOf(stringBuilder));
         bufferedWriter.flush();
         bufferedWriter.close();
         bufferedReader.close();
 
+    }
+    
+    public static int GCD(int a, int b){
+        if(b==0){
+            return a;
+        }
+        return GCD(b, a%b);
     }
 }
