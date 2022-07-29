@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-// 2022-07-28 14:23~16:31... 2시간 넘음 ㅠㅠ todo 내일 다시 보기
+// 2022-07-28 14:23~16:31... 2시간 넘음 ㅠㅠ to :do 내일 다시 보기
 // 회의실 배정
 
 public class Pro2_1931 {
