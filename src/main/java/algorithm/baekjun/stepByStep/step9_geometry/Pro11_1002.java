@@ -1,12 +1,13 @@
 package main.java.algorithm.baekjun.stepByStep.step9_geometry;
 
+// 2022-03-17 도전
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.StringTokenizer;
 
-// 2022-03-17 도전
 public class Pro11_1002 {
 
     public static void main(String[] args) throws IOException {
