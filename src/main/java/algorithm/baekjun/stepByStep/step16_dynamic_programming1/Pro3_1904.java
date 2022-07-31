@@ -3,7 +3,7 @@ package main.java.algorithm.baekjun.stepByStep.step16_dynamic_programming1;
 import java.io.*;
 import java.util.StringTokenizer;
 
-// todo 머리 맑을 때 다시!
+// to do 머리 맑을 때 다시!
 
 public class Pro3_1904 {
 

@@ -1,11 +1,14 @@
 package main.java.algorithm.baekjun.stepByStep.step22_binarySearch;
 
-// 2022-07-30 08:11~
+// 2022-07-30 08:11~09:38
 // K번째 수
+// ㅠㅠㅠㅠ 성공..
 
 import java.io.*;
 
-public class Pro6_1300_1 {
+import static java.lang.Math.min;
+
+public class Pro6_1300_1_solved {
 
     public static long[] sorted;
 
@@ -20,19 +23,30 @@ public class Pro6_1300_1 {
         long N = Integer.parseInt(bufferedReader.readLine());
         long K = Integer.parseInt(bufferedReader.readLine());
 
-        sorted = new long[(int)(N*N)];
+        long min = 1;
+        long max = N*N;
+        long mid;
 
-        long[] B = new long[(int)(N*N)];
 
-        for (int i = 1; i <= N; i++) {
-            for (int j = 1; j <= N ; j++) {
-                B[(int)(N*(i-1)+j-1)] = i*j;
+        while(min<max){
+
+            mid = (min + max) / 2;
+            long count = 0;
+
+            for (int i = 1; i <= N; i++) {
+                count+= min(mid / i, N);
             }
+
+            if(count >= K){
+                max = mid;
+            }else{
+                min = mid+1;
+            }
+
+
         }
 
-        divide(B, 0, N*N-1);
-
-        stringBuilder.append(sorted[(int)(K-1)]);
+        stringBuilder.append(min);
 
 
 
