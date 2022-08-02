@@ -1,11 +1,12 @@
 package main.java.algorithm.baekjun.stepByStep.step9_geometry;
 
-// 2022-08-01 기억은 안 나는데 도전했었군.. 재도전! 07:47~08:50 to:do 다시
+// 2022-08-03 재재도전! - 성공! 조건문에서 if && else if 어떻게 걸러지는지 잘 확인하기
+// 터렛
 
 import java.io.*;
 import java.util.*;
 
-public class Pro11_1002_1 {
+public class Pro11_1002_2_solved {
 
     public static void main(String[] args) throws IOException {
 
@@ -35,33 +36,38 @@ public class Pro11_1002_1 {
 //            System.out.println("r2 = " + r2);
 //            System.out.println("r1 = " + r1);
 
-            List<Double> list = new ArrayList<>();
-          list.add(r1);
-          list.add(r2);
-          list.add(r3);
-          list.sort(Comparator.naturalOrder());
-            System.out.println("list.toString() = " + list.toString());
+//            if(r1==r2 && r2==r3){
+//                stringBuilder.append("-1").append("\n");
+//            }else if(r1+r2>r3){
+//                stringBuilder.append("2").append("\n");
+//
+//            }else if(r1+r2<r3){
+//                stringBuilder.append("0").append("\n");
+//            }else if(r1+r2==r3){
+//                stringBuilder.append("1").append("\n");
+//            }else{
+//                System.out.println("어떤 상황? r1 : " + r1 + ", r2 : " + r2 + ", r3 :"+r3);
+//            }
+            if(r1==r2 && (int)r3==0){
+                stringBuilder.append("-1").append("\n");
 
-//            double pita = Math.sqrt(list.get(0)*list.get(0)+list.get(1)+list.get(1));
+            }else if((int)(r1*r1)+(int)(r2*r2)==(int)(r3*r3)){
+                stringBuilder.append("-1").append("\n");
 
-            if(list.get(0)+list.get(1)<list.get(2)){
+            }else if(Math.abs(r1-r2)>r3){
                 stringBuilder.append("0").append("\n");
-            }else if(list.get(0)+list.get(1)==list.get(2)){
+            }else if(Math.abs(r1-r2)==r3){
                 stringBuilder.append("1").append("\n");
 
-            }else{
-                if(list.get(0)*list.get(0)+list.get(1)*list.get(1)==list.get(2)*list.get(2)){
-                    if(list.get(2)==r3){
-                        stringBuilder.append("-1").append("\n");
-                    }else{
-                        stringBuilder.append("2").append("\n");
+            }else if(r1+r2 > r3){
+                stringBuilder.append("2").append("\n");
 
-                    }
-                }else{
-                    stringBuilder.append("2").append("\n");
-                }
+            }else if(r1+r2 == r3){
+                stringBuilder.append("1").append("\n");
+
+            }else if(r1+r2 < r3){
+                stringBuilder.append("0").append("\n");
             }
-
 
         }
 
