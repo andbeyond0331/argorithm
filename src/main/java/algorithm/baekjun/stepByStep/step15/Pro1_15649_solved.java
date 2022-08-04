@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
-public class Pro1_15649 {
+public class Pro1_15649_solved {
 
     static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -31,7 +31,7 @@ public class Pro1_15649 {
 
 
 
-    public Pro1_15649() throws IOException {
+    public Pro1_15649_solved() throws IOException {
     }
 
     public static void main(String[] args) throws IOException {
