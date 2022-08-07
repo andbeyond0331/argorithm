@@ -1,4 +1,4 @@
-package main.java.algorithm.baekjun.Class.level2.Pro1259;
+package main.java.algorithm.baekjun.Class.level2.solved.Pro1259;
 
 //2022-08-06 09:31~09:42
 // 팰리드롬수

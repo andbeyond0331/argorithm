@@ -1,4 +1,4 @@
-package main.java.algorithm.baekjun.Class.level1.Pro2920;
+package main.java.algorithm.baekjun.Class.level1.solved.Pro2920;
 
 //2022-08-06 09:58~12:21(중간에 쉼..ㅋㅋㅋ)
 // 음계

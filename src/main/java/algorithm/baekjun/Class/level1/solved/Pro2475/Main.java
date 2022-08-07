@@ -1,4 +1,4 @@
-package main.java.algorithm.baekjun.Class.level1.Pro2475;
+package main.java.algorithm.baekjun.Class.level1.solved.Pro2475;
 
 //2022-08-06 10:21~10:25
 // 검증수

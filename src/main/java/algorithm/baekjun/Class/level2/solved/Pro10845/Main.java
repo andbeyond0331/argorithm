@@ -1,4 +1,4 @@
-package main.java.algorithm.baekjun.Class.level2.Pro10845;
+package main.java.algorithm.baekjun.Class.level2.solved.Pro10845;
 
 //2022-08-06 09:43~
 // 큐

@@ -1,19 +1,17 @@
-package main.java.algorithm.baekjun.Class.level2.Pro18111;
+package main.java.algorithm.baekjun.Class.level2.solved.Pro18111;
 
-//2022-08-06 11:27~ 원본
+//2022-08-06 12:53~13:09 땅 높이 순서대로 담기 - 성공!
 // 마인크래프트
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 
-public class Main_0 {
+public class Main {
 
     static int B;
+    static int[] sorted;
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader =new BufferedReader(new InputStreamReader(System.in));
 
@@ -25,7 +23,9 @@ public class Main_0 {
         int max = -1;
         int min = 257;
 
-        int[][] ground = new int[N][M];
+        int[] ground = new int[N*M];
+        sorted = new int[N*M];
+        int ground_idx = 0;
 
         for (int i = 0; i < N; i++) {
             stringTokenizer = new StringTokenizer(bufferedReader.readLine(), " ");
@@ -34,12 +34,13 @@ public class Main_0 {
 //                System.out.println(a);
                 max = Math.max(max, a);
                 min = Math.min(min, a);
-                ground[i][j] = a;
+                ground[ground_idx++] = a;
             }
         }
-//        for (int i = 0; i < ground.length; i++) {
-//            System.out.println(Arrays.toString(ground[i]));
-//        }
+        System.out.println("Arrays.toString(ground) = " + Arrays.toString(ground));
+
+        divide(ground, 0, M*N-1);
+        System.out.println("Arrays.toString(sorted) = " + Arrays.toString(sorted));
         int answer = -1;
 //        System.out.println("min = " + min);
 //        System.out.println("max = " + max);
@@ -49,45 +50,42 @@ public class Main_0 {
             while(min<=max){
                 int time = 0;
                 int b = B;
-                for (int i = 0; i < N; i++) {
-                    for (int j = 0; j < M; j++) {
-                        if(time>=0){
-                            if(max>ground[i][j]){
-                                if(b>=max-ground[i][j]){
+                for (int i = N*M-1; i >=0; i--) {
+                    if(time>=0){
+                        if(max>sorted[i]){
+                            if(b>=max-sorted[i]){
 //                                System.out.println("i = " + i);
 //                                System.out.println("j = " + j);
 //                                System.out.println(time + " : time");
 //                                System.out.println("max = " + max);
 //                                System.out.println("=======11111=====");
-                                    b-=max-ground[i][j];
-                                    time+=max-ground[i][j];
-                                }else{
+                                b-=max-sorted[i];
+                                time+=max-sorted[i];
+                            }else{
 //                                System.out.println("i = " + i);
 //                                System.out.println("j = " + j);
 //                                System.out.println(time + " : time");
 //                                System.out.println("max = " + max);
 //                                System.out.println("======222222======");
-                                    time=-1;
-                                }
-                            }else if(max<ground[i][j]){
+                                time=-1;
+                            }
+                        }else if(max<sorted[i]){
 //                            System.out.println("i = " + i);
 //                            System.out.println("j = " + j);
 //                            System.out.println(time + " : time");
 //                            System.out.println("max = " + max);
 //                            System.out.println("======33333333======");
-                                b+=ground[i][j]-max;
-                                time+=2*(ground[i][j]-max);
+                            b+=sorted[i]-max;
+                            time+=2*(sorted[i]-max);
 
-                            }
-                        }else{
+                        }
+                    }else{
 //                        System.out.println("i = " + i);
 //                        System.out.println("j = " + j);
 //                        System.out.println(time + " : time");
 //                        System.out.println("max = " + max);
 //                        System.out.println("======444444======");
-                            break;
-                        }
-
+                        break;
                     }
                 }
                 if(time>=0){
@@ -131,7 +129,46 @@ public class Main_0 {
 
     }
 
-    public static void work (int[][] arr, int height, int b){
+    public static void divide (int[] arr, int left, int right){
+        if(left==right){
+            return;
+        }
+        int mid = (left+right)/2;
+        divide(arr, left, mid);
+        divide(arr, mid+1, right);
+        merge(arr, left, mid, right);
+    }
+    static void merge(int[] arr, int left, int mid, int right){
+        int l = left;
+        int r = mid+1;
+        int idx = left;
 
+        while(l<=mid && r<=right){
+            if(arr[l]>=arr[r]){
+                sorted[idx] = arr[r];
+                r++;
+                idx++;
+            }else{
+                sorted[idx] = arr[l];
+                l++;
+                idx++;
+            }
+        }
+        if(l>mid){
+            while(r<=right){
+                sorted[idx] = arr[r];
+                r++;
+                idx++;
+            }
+        }else{
+            while(l<=mid){
+                sorted[idx] = arr[l];
+                l++;
+                idx++;
+            }
+        }
+        for (int i = left; i <= right ; i++) {
+            arr[i] = sorted[i];
+        }
     }
 }

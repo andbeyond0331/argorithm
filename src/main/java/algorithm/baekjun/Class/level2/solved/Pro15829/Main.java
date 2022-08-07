@@ -1,4 +1,4 @@
-package main.java.algorithm.baekjun.Class.level2.Pro15829;
+package main.java.algorithm.baekjun.Class.level2.solved.Pro15829;
 
 //2022-08-06 10:27~11:01(중간에 쉼..ㅋㅋㅋㅋ &long으로 설정 안 해줘서 세 번 50점 나옴 ㅠㅠ)
 // Hashing
@@ -6,9 +6,6 @@ package main.java.algorithm.baekjun.Class.level2.Pro15829;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.StringTokenizer;
 
 public class Main {
     public static void main(String[] args) throws IOException {
