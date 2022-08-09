@@ -1,5 +1,5 @@
 
-package main.java.algorithm.baekjun.stepByStep.step12;
+package main.java.algorithm.baekjun.stepByStep.step12_sort;
 
 // 2022-03-22 시작 - 시간초과해결용 - 실패 to do 병합정렬 공부하기 : 공부함
 

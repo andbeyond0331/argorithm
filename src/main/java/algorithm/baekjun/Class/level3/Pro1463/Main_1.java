@@ -1,11 +1,11 @@
 package main.java.algorithm.baekjun.Class.level3.Pro1463;
 
-// 2022-08-09 12:14~12:15 지금은 프젝 하는 게 맞는 듯! todo 다음에
+// 2022-08-06 17:45~18:11 - todo 다시 풀어보기
 // 1로 만들기
 
 import java.io.*;
 
-public class Main {
+public class Main_1 {
 
     static int min;
     static int[] v;

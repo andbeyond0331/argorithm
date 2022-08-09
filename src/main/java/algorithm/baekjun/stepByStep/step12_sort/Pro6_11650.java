@@ -1,5 +1,5 @@
 
-package main.java.algorithm.baekjun.stepByStep.step12;
+package main.java.algorithm.baekjun.stepByStep.step12_sort;
 
 // 2022-03-22 시작 - 복잡해져서 _1에서 다시
 

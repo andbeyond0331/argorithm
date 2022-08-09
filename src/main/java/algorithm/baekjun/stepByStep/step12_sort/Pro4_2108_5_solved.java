@@ -1,11 +1,13 @@
-package main.java.algorithm.baekjun.stepByStep.step12;
+package main.java.algorithm.baekjun.stepByStep.step12_sort;
 
-//// 2022-07-25 재시도 - 시간초과
+//// 2022-07-25 재재시도 - 시간초과 - 드디어 맞음..
 
 import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
-public class Pro4_2108_4 {
+public class Pro4_2108_5_solved {
 
 
     public static void main(String[] args) throws IOException {
@@ -16,14 +18,15 @@ public class Pro4_2108_4 {
 
         StringBuilder stringBuilder = new StringBuilder();
         int N = Integer.parseInt(bufferedReader.readLine());
-        int[] ints = new int[N];
-        int idx = 0;
+//        int[] ints = new int[N];
+//        int idx = 0;
         int sum = 0;
 
         int[] numbers = new int[8001]; // 수
         int count = 0; // 최대 개수
 
-        List<Integer> list = new ArrayList<>(); // 최빈값 구하기 위한 list
+        List<Integer> mostList = new ArrayList<>(); // 최빈값 구하기 위한 list
+        List<Integer> sortList = new ArrayList<>(); // 순서 구하기 위한 list
 
         if(N==1){
             int temp = Integer.parseInt(bufferedReader.readLine());
@@ -41,57 +44,47 @@ public class Pro4_2108_4 {
                     count = numbers[temp+4000];
                 }
 
-                if(idx==0){
-                    ints[0] = temp;
-                }else{
-                    for (int j = idx-1; j >=0 ; j--) {
-                        if(temp>=ints[j]){
+                sortList.add(temp);
 
-                            ints[j+1]=temp;
-                            break;
-                        }else{
-                            ints[j+1] = ints[j];
-                            ints[j] = temp;
-                        }
-                    }
-                }
-                idx++;
+                
             }
-            for (int i = 0; i < ints.length; i++) {
-                System.out.println("ints : " + ints[i]);
+            for (int i = 0; i < sortList.size(); i++) {
+                System.out.println("sortList : " + sortList.get(i));
             }
+            sortList.sort(Comparator.naturalOrder());
 
             for (int i = 0; i < numbers.length; i++) {
                 if(numbers[i]==count){
                     System.out.println("numbers["+i+"] : " + count);
-                    list.add(i-4000);
+                    mostList.add(i-4000);
                 }
             }
-            list.sort(Comparator.naturalOrder());
+            mostList.sort(Comparator.naturalOrder());
 
             int avg  = 0;
 
-            if(sum/N >=0){
-                avg = sum/N;
+
+            if((double)sum/(double)N >=0){
+                avg = (int) Math.round((double)sum/(double)N);
             }else{
-                avg = sum/N-1;
+                avg = (int) Math.round((double)sum/(double)N);
             }
 
             int amount = 0;
 
-            if(list.size()>1){
-                amount = list.get(1);
+            if(mostList.size()>1){
+                amount = mostList.get(1);
             }else{
-                amount = list.get(0);
+                amount = mostList.get(0);
             }
 
 
 
 
             stringBuilder.append(avg).append("\n");
-            stringBuilder.append(ints[N/2]).append("\n");
+            stringBuilder.append(sortList.get(N/2)).append("\n");
             stringBuilder.append(amount).append("\n");
-            stringBuilder.append(ints[ints.length-1]-ints[0]);
+            stringBuilder.append(sortList.get(sortList.size()-1)-sortList.get(0));
 
 
 

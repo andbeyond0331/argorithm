@@ -1,5 +1,5 @@
 
-package main.java.algorithm.baekjun.stepByStep.step12;
+package main.java.algorithm.baekjun.stepByStep.step12_sort;
 
 // 2022-07-26 시도(합병정렬) -성공 (11650 x, y만 바꾸면 됨)
 

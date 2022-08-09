@@ -1,5 +1,5 @@
 
-package main.java.algorithm.baekjun.stepByStep.step12;
+package main.java.algorithm.baekjun.stepByStep.step12_sort;
 
 // 2022-07-26 재시도(합병정렬) - 성공..?
 // TO:DO: 2022-07-26 왜 맞았나 생각하기 ㅋㅋㅋㅋㅋ // ㅋㅋㅋㅋㅋㅋ몇 번 더 해보니까 알겠음!

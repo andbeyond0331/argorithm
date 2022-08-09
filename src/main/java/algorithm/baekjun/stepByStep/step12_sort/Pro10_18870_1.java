@@ -1,5 +1,5 @@
 
-package main.java.algorithm.baekjun.stepByStep.step12;
+package main.java.algorithm.baekjun.stepByStep.step12_sort;
 
 // 2022-07-26 시도 - 시간초과 해결 ver - 실패
 // TO:DO: 2022-07-26 머리 맑을 때 다시!

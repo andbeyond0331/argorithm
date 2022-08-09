@@ -1,12 +1,8 @@
-package main.java.algorithm.baekjun.stepByStep.step12;
+package main.java.algorithm.baekjun.stepByStep.step12_sort;
 
 //// 2022-03-22 시간초과해결용3 - 동빈님 영상 시청 후(~실전 알고리즘 강좌 7
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 
 public class Pro4_2108_3 {
 
