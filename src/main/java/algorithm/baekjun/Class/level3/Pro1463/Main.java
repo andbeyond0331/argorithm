@@ -1,6 +1,8 @@
 package main.java.algorithm.baekjun.Class.level3.Pro1463;
 
-// 2022-08-09 12:14~12:15 지금은 프젝 하는 게 맞는 듯! todo 다음에
+// 2022-08-09 12:14~12:15 지금은 프젝 하는 게 맞는 듯! to do 다음에
+// 2022-08-10 18:11~
+
 // 1로 만들기
 
 import java.io.*;
@@ -21,37 +23,52 @@ public class Main {
         min = N+1;
         v = new int[N+1];
 
-//        while(N!=1){
-//            if(N%3==0){
-//                N/=3;
-//                count++;
-//            }else if((N-1)%3==0){
-//                N--;
-//                count++;
-//                N/=3;
-//                count++;
-//            }else if(N%2==0){
-//                N/=2;
-//                count++;
-//            }else if(N!=0) {
-//                N--;
-//                count++;
-//            }else{
-//                System.out.println("Who are you? : " + N);
-//
-//            }
-//        }
         stringBuilder.append(count);
 
         bufferedWriter.write(String.valueOf(stringBuilder));
         bufferedWriter.flush();
         bufferedWriter.close();
         bufferedReader.close();
-//        System.out.println(stringBuilder);
     }
 
-    static void dp(int n){
-//        if()
+    static void dp(int n, int depth){
+        if(n==1){
+
+            return;
+        }
+        if(n%6==0){
+            if(v[n/6]==0){
+                v[n/6]=depth+2;
+                dp(n/6, depth+2);
+            }else if(v[n/6]>depth+2){
+                v[n/6] = depth+2;
+                dp(n/6, depth+2);
+            }
+        }else if(n%3==0){
+            if(v[n/3]==0){
+                v[n/3] = ++depth;
+                dp(n/3, depth);
+            }else if(v[n/3]>depth+1){
+                v[n/3] = ++depth;
+                dp(n/3, depth);
+            }
+        }else if(n%2==0){
+            if(v[n/2]==0){
+                v[n/2] = ++depth;
+                dp(n/2, depth);
+            }else if(v[n/2]>depth+1){
+                v[n/2] = ++depth;
+                dp(n/2, depth);
+            }
+        }else{
+            if(v[n-1]==0){
+                v[n-1] = ++depth;
+                dp(n-1, depth);
+            }else if(v[n-1]>depth+1){
+                v[n-1] = ++depth;
+                dp(n-1, depth);
+            }
+        }
     }
 
 
