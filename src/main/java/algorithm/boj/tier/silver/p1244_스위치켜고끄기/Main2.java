@@ -1,9 +1,8 @@
-package main.java.algorithm.boj.tier.silver.p1244_스위치켜고끄기_unsolved;
+package main.java.algorithm.boj.tier.silver.p1244_스위치켜고끄기;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main2 {

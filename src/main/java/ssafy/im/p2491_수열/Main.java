@@ -15,45 +15,46 @@ public class Main {
 
 		int[] arr = new int[N];
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+
 		for (int i = 0; i < N; i++) {
 			arr[i] = Integer.parseInt(st.nextToken());
 		}
 
-		int max = -1;
+		int inCnt = 0;
+		int inTmp = 1;
+		int deCnt = 0;
+		int deTmp = 1;
 
-		for (int i = 0; i < N; i++) {
-			int countI = 1;
-			int countD = 1;
-			for (int j = i; j < N; j++) {
-				if (j != i) {
-					if (arr[j] <= arr[j - 1]) {
-						countD++;
-					}else{
-						break;
-					}
+		for (int i = 1; i < N; i++) {
+			if(arr[i]>=arr[i-1]){
+//				System.out.println("---");
+				inTmp++;
+				if(i==N-1){
+					inCnt = Math.max(inTmp, inCnt);
 				}
+			}else{
+//				System.out.println("===");
+				inCnt = Math.max(inTmp, inCnt);
+				inTmp = 1;
 			}
-			for (int j = i; j < N; j++) {
-				if(j != i) {
-					if(arr[j]>=arr[j-1]){
-						countI++;
-					}else{
-						break;
-					}
+			if(arr[i]<=arr[i-1]){
+				deTmp++;
+				if(i==N-1){
+					deCnt = Math.max(deTmp, deCnt);
 				}
-
-
-			}
-			if(countI>=max) {
-				max =countI;
-			}
-			if(countD >= max) {
-				max =countD;
+			}else{
+				deCnt = Math.max(deCnt, deTmp);
+				deTmp = 1;
 			}
 		}
+		if(N==1){
+			System.out.println(1);
+		}else{
 
-		bw.write(max);
-		bw.close();
+		System.out.println(Math.max(deCnt, inCnt));
+		}
+//		bw.write(());
+
 		br.close();
 
 	}

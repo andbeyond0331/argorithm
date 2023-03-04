@@ -13,14 +13,51 @@ public class Main {
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
 		int N = Integer.parseInt(br.readLine());
-		int[][] room = new int[N][N];
+		String[][] room = new String[N][N];
 
-		int rCnt = 0;
-		for (int i = 0; i <N; i++) {
+		for (int i = 0; i < N; i++) {
+			String line = br.readLine();
 			for (int j = 0; j < N; j++) {
+				room[i][j] = String.valueOf(line.charAt(j));
 
 			}
 		}
+		boolean rFlag = false;
+		int rCnt = 0;
+		for (int i = 0; i <N; i++) {
+			for (int j = 0; j < N-1; j++) {
+				if(!rFlag && room[i][j].equals(".")){
+					if(room[i][j+1].equals(".")){
+						rCnt++;
+						rFlag = true;
+					}
+				}else if(room[i][j].equals("X")) {
+					rFlag = false;
+				}
+				if(j==N-2){
+					rFlag = false;
+				}
+			}
+		}
+		int cCnt = 0;
+		boolean cFlag = false;
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N-1; j++) {
+				if(!cFlag && room[j][i].equals(".")){
+					if(room[j+1][i].equals(".")){
+						cCnt++;
+						cFlag = true;
+					}
+				}else if(room[j][i].equals("X")) {
+					cFlag = false;
+				}
+				if(j==N-2){
+					cFlag = false;
+				}
+			}
+		}
+
+		System.out.println(rCnt + " " + cCnt);
 
 
 
