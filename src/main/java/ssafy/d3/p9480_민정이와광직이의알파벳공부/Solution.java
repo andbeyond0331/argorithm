@@ -26,7 +26,6 @@ public class Solution {
 
 			cnt = 0;
 
-			
 			String[] words = new String[N];
 			boolean[] visited = new boolean[N];
 
@@ -40,11 +39,7 @@ public class Solution {
 
 			sb.append("#").append(t).append(" ").append(cnt).append("\n");
 
-
-			
-			
 		}
-
 
 		bw.append(sb);
 		bw.flush();
