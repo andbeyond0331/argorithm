@@ -1,4 +1,4 @@
-package main.java.algorithm.boj.tier.gold.p17070_파이프옮기기1_unsolved;
+package main.java.algorithm.boj.tier.gold.p20055_컨베이어벨트위의로봇_unsolved;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,37 +8,29 @@ import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
 public class Main {
-	static int[][] dp;
-	static int[][] home;
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringBuilder sb = new StringBuilder();
 		StringTokenizer st;
 
-		int N = Integer.parseInt(br.readLine()); // 집의 크기 3 ~ 16
+		st = new StringTokenizer(br.readLine());
 
-		dp = new int[N][N];
-		home = new int[N][N];
+		int N = Integer.parseInt(st.nextToken());
+		int K = Integer.parseInt(st.nextToken());
 
-		for (int i = 0; i < N; i++) {
-			st = new StringTokenizer(br.readLine());
-			for (int j = 0; j < N; j++) {
-				home[i][j] = Integer.parseInt(st.nextToken());
-			}
+
+		int cnt = 0;
+		int level = 0;
+		while(cnt<K){
+
 		}
 
-		// dp 이용,
 
 		bw.append(sb);
 		bw.flush();
 		br.close();
 		bw.close();
 
-	}
-
-	static int sum (int x, int y){
-
-		return 0;
 	}
 }
