@@ -1,60 +1,68 @@
 import java.util.*;
 
 class Solution {
-    static String[] discount;
-    static String[] want;
-    static int[] number;
-    static int count;
     public int solution(String[] want, int[] number, String[] discount) {
         int answer = 0;
-        this.discount = discount;
-        this.want = want;
-        this.number = number;
-        count = 0;
-        for(int i = 0; i <= discount.length-10; i ++) {
-            int temp = cnt(i);
-            if(temp == 10) {
-                
-                count ++;
-            }
-            
+        // 자신이 원하는 제품과 수량이 할인하는 날짜와 10일 연속 일치할 경우에 맞춰 회원가입
+        Map<String, Integer> goal = new HashMap<>();
+        Map<String, Integer> current = new HashMap<>();
+        for(int i = 0;i < want.length; i++) {
+                goal.put(want[i], number[i]);
+        }
         
+        for(int i = 0; i < 10; i++) {
+             if(current.containsKey(discount[i])) {
+                 current.put(discount[i], current.get(discount[i])+1);
+             } else {
+                 current.put(discount[i], 1);
+             }
         }
-        answer = count;
-        return answer;
-    }
-    public static int check (String str) {
-        int result = -1;
-        for(int i = 0; i < want.length; i++) {
-            if(want[i].equals(str)) {
-                result = i;
-            }
-        }
-        return result;
-    }
-    public static int cnt(int index) {
-        String[] newWant = new String[want.length];
-        int[] newNumber = new int[number.length];
-        for(int i = 0; i < newWant.length; i++) {
-            newWant[i] = want[i];
-        }
-        for(int i = 0; i < newNumber.length; i++) {
-            newNumber[i] = number[i];
-        }
-        int num = 0;
-        for(int i = index; i < index+10; i++) {
-            int c = check(discount[i]);
-            if(c>-1) {
-                // num ++;
-                newNumber[c]--;
-                if(newNumber[c]<0) {
-                    return num;
+        boolean flag = true;
+        for(String s:goal.keySet()) {
+            if(current.containsKey(s)) {
+                if(current.get(s) == goal.get(s)) {
+                    continue;
                 }
-                num++;
-            } else {
-                return num;
+                flag = false;
+                break;
+            }else {
+                flag = false;
+                break;
             }
         }
-        return num;
+        if(flag) {
+            answer++;
+        }
+        flag = true;
+        
+        for(int i = 10; i < discount.length; i++) {
+            if(current.get(discount[i-10]) == 1) {
+                current.remove(discount[i-10]);
+            } else {
+                current.put(discount[i-10], current.get(discount[i-10])-1);
+            }
+            if(current.containsKey(discount[i])) {
+                current.put(discount[i], current.get(discount[i])+1);
+            } else {
+                current.put(discount[i], 1);
+            }
+            for(String s:goal.keySet()) {
+                if(current.containsKey(s)) {
+                    if(current.get(s) == goal.get(s)) {
+                        continue;
+                    }
+                    flag = false;
+                    break;
+                }else {
+                    flag = false;
+                    break;
+                }
+            }
+            if(flag) {
+                answer++;
+            }
+            flag = true;
+        }
+        return answer;
     }
 }
